@@ -15,7 +15,9 @@ The final figure is a index.html where the T-Map plot can be explored.
 
 ## Example of usage 
 
-```python tmap_gen.py --analysis_folder /path/to/folder/where/results/store --data_path /path/to/csv --smi_column_name smiles --molecule_class_col cmps --descriptors_column_names MolWt,TPSA,LogP,NumHAcceptors,NumHDonors```
+```bash
+python tmap_gen.py --analysis_folder /path/to/folder/where/results/store --data_path /path/to/csv --smi_column_name smiles --molecule_class_col cmps --descriptors_column_names MolWt,TPSA,LogP,NumHAcceptors,NumHDonors
+```
 
 ## Disclaimer
 When descriptor columns are not specified, descriptors are calculated for MolWt, TPSA, LogP, NumHAcceptors and NumHDonors. 
