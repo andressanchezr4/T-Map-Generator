@@ -16,7 +16,7 @@ The final figure is a index.html where the T-Map plot can be explored.
 ## Example of usage 
 
 ```bash
-python tmap_gen.py --analysis_folder /path/to/folder/where/results/store --data_path /path/to/csv --smi_column_name smiles --molecule_class_col cmps --descriptors_column_names MolWt,TPSA,LogP,NumHAcceptors,NumHDonors
+ C:\Users\andres.sanchez>python path/to/tmap_gen.py --analysis_folder /path/to/results/folder --data_path path/to/csv --smi_column_name smiles_column --molecule_class_col class_column --molecule_id_col id_column
 ```
 
 ## Disclaimer
@@ -24,4 +24,4 @@ When descriptor columns are not specified, descriptors are calculated for MolWt,
 
 Even though more than one categorical descriptor can be included in the T-Map, it has not been implemented. Follow the comments within the script in order to know where those can be added. 
 
-Some fingerprint generation arises issues if you are using the latest version of rdkit. Even though therese errors are handled, those molecules will not be displayed. However, if you want to make sure every molecule is included you should have rdkit=2022.09.1 installed.
+Some fingerprint generation arises issues if you are using the latest version of rdkit. Even though therese errors are handled, those molecules will not be displayed. If you want to make sure every molecule is included you should have rdkit=2022.09.1 installed.
