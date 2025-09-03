@@ -16,7 +16,7 @@ The final figure is a index.html where the T-Map plot can be explored.
 ## Example of usage 
 
 ```bash
- C:\Users\andres.sanchez>python path/to/tmap_gen.py --analysis_folder /path/to/results/folder --data_path path/to/csv --smi_column_name smiles_column --molecule_class_col class_column --molecule_id_col id_column
+python path/to/tmap_gen.py --analysis_folder /path/to/results/folder --data_path path/to/csv --smi_column_name smiles_column --molecule_class_col class_column --molecule_id_col id_column
 ```
 
 ## Disclaimer
