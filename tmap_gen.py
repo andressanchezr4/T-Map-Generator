@@ -4,7 +4,8 @@ Created on 2025
 
 @author: andres.sanchez
 """
-
+import sys
+sys.path.append('C:/Users/andres.sanchez/Downloads/T-Map-Generator-main')
 import pickle
 import numpy as np
 import tmap as tm
@@ -21,7 +22,7 @@ from Tools import smi_descriptors, calculate_descriptors, fps_mhfp_gen
  
 def main(descriptors_column_names):
     
-    df = pd.read_csv(data_path, sep=",", low_memory= False)
+    df = pd.read_csv(data_path, sep=None, engine="python")[:5000]
 
     lf = tm.LSHForest(1024, 64)
     
@@ -75,6 +76,18 @@ def main(descriptors_column_names):
     colors[7] = (0.17, 0.24, 0.31)
     tab_10.colors = tuple(colors)
     
+    df[smi_colum_name] = (
+                        df[smi_colum_name]
+                        + '__<a target="_blank" href="https://foodb.ca/compounds/'
+                        + df[molecule_id_col]
+                        + '">'
+                        + df[molecule_id_col]   # this is the visible text inside the link
+                        + "</a>"
+                        # + '__'                  # separator for a new field
+                        # + df[molecule_id_col]   # plain FoodB ID as an extra field
+                    )
+
+
     f = Faerun(view="front", coords=False)
     f.add_scatter(
         "np_atlas",
@@ -92,6 +105,7 @@ def main(descriptors_column_names):
         colormap=tmap_color, # colors that will correspond to the "c" key in the dictionary
         series_title=descriptors_column_names, # name of the different labels in the visualization tree ("c" keys too) 
         has_legend=True,
+        title_index=1 # shows in the tooltip the image of the molecule and the id (CHECK  LINES 79-88)
     )
     f.add_tree("np_atlas_tree", {"from": s, "to": t}, point_helper="np_atlas")
     f.plot(template="smiles", path = analysis_folder)
@@ -115,6 +129,9 @@ if __name__ == "__main__":
     parser.add_argument("--molecule_class_col", type=str,
         help="Column name for molecule class if any.")
     
+    parser.add_argument("--molecule_id_col", type=str,
+        help="Column name for molecule id.")
+    
     parser.add_argument("--descriptors_column_names", default = None,
         help="List of calculated descriptors (if any) separated by coma (,). CATEGORICAL DESCRIPTORS NOT HANDLED.")
     
@@ -127,6 +144,7 @@ if __name__ == "__main__":
     data_path = args.data_path
     smi_colum_name = args.smi_column_name.strip()
     molecule_class_col = args.molecule_class_col
+    molecule_id_col = args.molecule_id_col
     descriptors_column_names = args.descriptors_column_names
     descriptors_column_names = (
             [i.strip() for i in descriptors_column_names.split(",")]
