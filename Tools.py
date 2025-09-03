@@ -4,6 +4,7 @@ import pandas as pd
 from mhfp.encoder import MHFPEncoder
 from rdkit import Chem
 from rdkit.Chem import Descriptors
+from rdkit.Chem import AllChem
 
 def smi_descriptors(mol):
 
