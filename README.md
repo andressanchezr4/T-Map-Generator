@@ -24,4 +24,4 @@ When descriptor columns are not specified, descriptors are calculated for MolWt,
 
 Even though more than one categorical descriptor can be included in the T-Map, it has not been implemented. Follow the comments within the script in order to know where those can be added. 
 
-Some fingerprint generation arises issues if you are using the latest version of rdkit. This errors are handled, and the molecules are simply not displayed. However, if you want to make sure every molecule is included you should have a version like rdkit=2022.09.1.
+Some fingerprint generation arises issues if you are using the latest version of rdkit. Even though therese errors are handled, those molecules will not be displayed. However, if you want to make sure every molecule is included you should have rdkit=2022.09.1 installed.
