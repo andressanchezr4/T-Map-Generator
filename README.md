@@ -1,7 +1,10 @@
 # T-Map-Generator
 This code is a generalization for Chemical Space Visualization with tmap following the example "Natural Product Atlas" found [here](https://tmap.gdb.tools/#ex-npa).
 
-The script takes a dataset with a SMILES column and plots all the molecules in a T-Map. Molecule descriptors (molwt, tpsa, logp, class) can also be represented.
+The script takes a dataset with a SMILES column and plots all the molecules in a T-Map.
+
+Molecule descriptors (molwt, tpsa, logp, class) can also be represented.
+
 The final figure is a index.html where the T-Map plot can be explored. 
 
 ## Requirements 
