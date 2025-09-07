@@ -3,9 +3,7 @@ This code is a generalization for Chemical Space Visualization with tmap followi
 
 The script takes a dataset with a SMILES column and plots all the molecules in a T-Map.
 
-Molecule descriptors (molwt, tpsa, logp, class) can also be represented.
-
-The final figure is a index.html where the T-Map plot can be explored. 
+The final figure is an index.html where the T-Map plot can be explored. 
 
 ## Requirements 
 - numpy
@@ -23,4 +21,4 @@ python path/to/tmap_gen.py --analysis_folder /path/to/results/folder --data_path
 ```
 
 ## Disclaimer
-Some fingerprint generation arises issues if you are using the latest version of rdkit. Even though therese errors are handled, those molecules will not be displayed. If you want to make sure every molecule is included you should have rdkit=2022.09.1 installed.
+Some fingerprint generation may arise issues if you are using the latest version of rdkit. Even though therese errors are handled, those molecules will not be displayed. If you want to make sure every molecule is included you should have rdkit=2022.09.1 installed.
